@@ -3,52 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>My Portfolio</title>
-    <style>
-        .main{
-            text-align:center;
-        }
-    </style>
 </head>
 <body>
     <div id="loading">
-        Loading...
+        
     </div>
 
     <div class="main" id="mainContainer" hidden>
-        <img
-        height="100" width="100"
-        id ="profileImage">
-        <h2 id="fullName"></h2>
-        <p id ="followersInformation"></p>
-        <p>
-            Check me on github
-            <a id="githubLink">Github</a>
-        </p>
-        <div>
+        <div class="column card">
+            <img height="25%" width="25%" id ="profileImage">
+            <h2 id="fullName"></h2>
+            <p id ="followersInformation"></p>
+            <p>
+                Check me on github
+                <a id="githubLink">Github</a>
+            </p>
+        </div>
+        <div class="column"> 
+            <h2>My Projects</h2>
+            <div id="reposInfo" class="reposItems">
+            </div>
+            
+            <div class="pagination">
+                <div class="previous">Previous</div>
+                <div class="page">Page<span class="page"></span></div>
+                <div class="next">Next</div>
+            </div>
+             
+        </div>
+        <div class="column card">
             <a class="twitter-timeline" data-width="300" data-height="400" href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw">Tweets by TwitterDev</a>
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
-    </div>
+   </div>
 
-<script>
-    fetch('https://api.github.com/users/nehapokharel')
-    .then(response => response.json())
-    .then(function(data){
-        console.log(data)
-        let followersCount = data['followers']
-        console.log(followersCount)
-        let followersInfo = `I have been folllowed by ${followersCount} awesome people`
-        console.log(followersInfo)
-        document.getElementById('profileImage').src=data['avatar_url']
-        document.getElementById('fullName').textContent=data['name']
-        document.getElementById('followersInformation').textContent=followersInfo
-        document.getElementById('githubLink').href=data['html_url']
-        document.getElementById('mainContainer').hidden = false
-        document.getElementById('loading').hidden = true
-    })
-
-</script>
+<script src="script.js"></script>
 
 </body>
+
 </html>
+    
